@@ -39,8 +39,11 @@ function solve () {
 
   Input: A[] = {1, 2, 3} 
   Output: -1
+  https://www.geeksforgeeks.org/prefix-sum-array-implementation-applications-competitive-programming/
   */
   // =============== SOLVE ==============
+  // =========== Method 1 ============
+  /*
   let prefixSumArr = [],
     prefixSum = 0
   let arr = readline().split(' ').map(x => {
@@ -60,6 +63,25 @@ function solve () {
     }
     prefixSum -= arr[i]
     // console.log('prefixSum:', prefixSum)
+  }
+  console.log('Equi Index = ', -1)
+  */
+  // =========== Method 2 ============
+  let prefixSumArr = [],
+    prefixSum = 0
+  let arr = readline().split(' ').map(x => +x)
+  let leftArrSum = [], rightArrSum = [], leftSum = 0, rightSum = 0
+  for (let i=0, j=arr.length - 1; i<arr.length; i++, j--) {
+    leftSum += arr[i]
+    leftArrSum.push(leftSum)
+    rightSum += arr[j]
+    rightArrSum.push(rightSum)
+  }
+  for (let i=0; i<arr.length; i++) {
+    if (leftArrSum[i] == rightArrSum[arr.length - i - 1]) {
+      console.log('Equi Index = ', i)
+      return
+    }
   }
   console.log('Equi Index = ', -1)
 }
