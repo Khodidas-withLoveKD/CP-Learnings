@@ -83,27 +83,22 @@ function solve () {
   // reduce from front
   for (i=0; i<arr.length; i++) {
     subarraySumFront -= arr[i]
-    // console.log('subarraySumFront:', subarraySumFront)
-    // console.log('arr[i]:', arr[i])
     if (subarraySumFront <= k) {
       break
     }
     maxReducibleSize++
-    // console.log('maxReducibleSize:', maxReducibleSize)
   }
-  // console.log('maxReducibleSize:', maxReducibleSize)
   // reduce from back
   subarraySumBack = prefixSumArr[arr.length - i - 1]
-  // console.log('subarraySumBack:', subarraySumBack)
   for (j=arr.length-1-i; j >= 0 ; j--) {
     subarraySumBack -= arr[j]
-    // console.log('subarraySumBack:', subarraySumBack)
     if (subarraySumBack <= k) {
       console.log('size = ', arr.length - maxReducibleSize)
       return
     }
     maxReducibleSize++
   }
+  // Time Complexity: O(n)
 }
 /*
 aRR 1 2 3 4  k = 8
