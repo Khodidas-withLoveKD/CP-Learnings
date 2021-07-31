@@ -40,32 +40,24 @@ function solve () {
   // =========== My try ============
   let limit = 10**3,
     primes = [...Array(limit + 1).keys()].map(x => true)
-  let index = 2,
-    factor = index,
-    stop = false,
+  let index = 1,
     ans = []
 
-  while (!stop) {
-    stop = true
-    factor = index
-    for (let i = index * index; i<limit; i += factor) {
-      primes[i] = false
-    }
-    // find next index
-    for (let i = index+1; i<limit; i++) {
-      if (primes[i]) {
-        ans.push(i)
-        index = i
-        stop = false
-        break
-      }
+  // find next index
+  for (let j = index+1; j < limit; j++) {
+    if (primes[j]) {
+      ans.push(j)
+      index = j
+      // mark other as non-prime/composite
+      for (let i = index * index; i < limit; i += index)
+        primes[i] = false
     }
   }
   // print primes
+  console.log('No. of Primes = \n', ans.length)
   console.log(' Primes = \n', ...ans)
-  // Time Complexity: O()
+  // Time Complexity: O(nloglog(n))
 }
 /*
-aRR 1 2 3 4  k = 8
-PS  1 3 6 10
+
 */
