@@ -58,7 +58,8 @@ function solve () {
 
   Input: arr1[] = {0, 0, 1, 0};
         arr2[] = {1, 1, 1, 1};
-  Output: 1 
+  Output: 1
+  ADDITIONAL TASK --> Get the start and end index of ans array
   */
   // =============== SOLVE ==============
   // =========== My try ============
@@ -68,7 +69,8 @@ function solve () {
     // create auxiliary (helper) array of size 2n+1
     // because diff in prefixSum can go from -n to n
     diffArray = [...Array(2 * arr1.length + 1).keys()].map(x => -1),
-    prefixSum1 = 0, prefixSum2 = 0, curr_diff, maxLen = 0 
+    prefixSum1 = 0, prefixSum2 = 0, curr_diff, maxLen = 0,
+    start = -1, end = -1 // -1 indicates no such array exists
     
   // get prefixSum of arrays and
   // keep marking the diff of prefixSums
@@ -79,7 +81,11 @@ function solve () {
     // if curr_diff == 0 then
     // the prefixSums till that point are same
     // so maxLen = i + 1
-    if (!curr_diff) maxLen = i + 1
+    if (!curr_diff) {
+      maxLen = i + 1
+      start = 0
+      end = i
+    }
     // if curr_diff is found for first time
     else if (diffArray[n + curr_diff] == -1) {
       // mark it in diffArray
@@ -87,9 +93,12 @@ function solve () {
     } else { // if curr_diff is already present
       // get the sum span
       maxLen = Math.max(maxLen, i - diffArray[n + curr_diff])
+      start = diffArray[n + curr_diff] + 1
+      end = i
     }
   }
   console.log('maxLen = ', maxLen)
+  console.log('The longest span with same sum is from index ' + start + ' to ' + end)
 }
 /*
 
