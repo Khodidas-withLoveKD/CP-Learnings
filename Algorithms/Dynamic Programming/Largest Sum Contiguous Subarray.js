@@ -53,6 +53,14 @@ function solve () {
     #2 will use kadane's algorithm (learnt from gfg)
     #3 little complex --> let's see
   */
+  // ======== handling (just) case #3 =========
+  let arr = readline().split(' ').map(x => +x),
+    maxSoFar = Number.MIN_SAFE_INTEGER, prefixSum = 0
+  
+  // this is very stupid
+  maxSoFar = Math.max(...arr)
+  console.log('ans = ', maxSoFar)
+  /*
   // ============ Kadane's algorithm =========
   let arr = readline().split(' ').map(x => +x),
     maxSoFar = 0,prefixSum = 0
@@ -67,6 +75,7 @@ function solve () {
     }
   })
   console.log('ans = ', maxSoFar)
+  */
   /*
   // =========== My try ============
   let  prefixSumArr = [0],
