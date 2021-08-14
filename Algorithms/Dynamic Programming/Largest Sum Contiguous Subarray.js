@@ -43,6 +43,31 @@ function solve () {
                           ans = 7
   */
   // =============== SOLVE ==============
+  /*
+    There will be 3 cases (types of input):
+    1. All positive
+    2. Both +ve and -ve
+    3. All negative
+
+    #1 is quite straight-forward. The entire array sum is ans
+    #2 will use kadane's algorithm (learnt from gfg)
+    #3 little complex --> let's see
+  */
+  // ============ Kadane's algorithm =========
+  let arr = readline().split(' ').map(x => +x),
+    maxSoFar = 0,prefixSum = 0
+  
+  // traverse the array
+  arr.forEach( num => {
+    prefixSum += num
+    if (prefixSum < 0) {
+      prefixSum = 0
+    } else if (prefixSum > maxSoFar) {
+      maxSoFar = prefixSum
+    }
+  })
+  console.log('ans = ', maxSoFar)
+  /*
   // =========== My try ============
   let  prefixSumArr = [0],
     prefixSum = 0,
@@ -66,6 +91,7 @@ function solve () {
   }
   console.log('maxSum:', maxSum)
   // Time Complexity: O(n^2)
+  */
 }
 /*
 
