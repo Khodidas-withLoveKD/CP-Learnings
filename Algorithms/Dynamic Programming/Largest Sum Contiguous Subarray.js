@@ -52,7 +52,36 @@ function solve () {
     #1 is quite straight-forward. The entire array sum is ans
     #2 will use kadane's algorithm (learnt from gfg)
     #3 little complex --> let's see
+
+    Additional: Printing indexes as well
   */
+  // ============ Handling all cases + Printing indexes as well =========
+  let arr = readline().split(' ').map(x => +x),
+  maxSoFar = Number.MIN_SAFE_INTEGER,
+  currSum = 0, start = 0, end = 0,
+  s = 0 // an index which makes the prefixSum +ve
+
+  // traverse the array
+  for (let i = 0; i < arr.length; i++) {
+    // The solution is pretty straight-forward if you think so
+    // generate a prefixSum
+    currSum += arr[i]
+    if (currSum > maxSoFar) { // to track the max sum segment
+      maxSoFar = currSum
+      start = s // the last index that made the prefixSum +ve
+      end = i // the best index found so far
+    }
+    if (currSum < 0) {
+      // maybe the next index makes prefixSum +ve
+      // becuase current surely didn't
+      s = i + 1
+      // reset it
+      currSum = 0
+    }
+  }
+  console.log('ans = ', maxSoFar)
+  console.log('Start = ' + start + ' | end = ' + end)
+  /*
   // ============ Handling all cases =========
   let arr = readline().split(' ').map(x => +x),
   maxSoFar = Number.MIN_SAFE_INTEGER,currSum = 0
