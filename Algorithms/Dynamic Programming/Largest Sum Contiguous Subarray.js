@@ -53,6 +53,22 @@ function solve () {
     #2 will use kadane's algorithm (learnt from gfg)
     #3 little complex --> let's see
   */
+  // ============ Handling all cases =========
+  let arr = readline().split(' ').map(x => +x),
+  maxSoFar = Number.MIN_SAFE_INTEGER,currSum = 0
+
+  // traverse the array
+  arr.forEach( num => {
+    // There are two things that can happen
+    // Either it will be an addition to my sum
+    // or it will be the starting of the array with max sum if it > the current prefixSum
+    // choose the maximum
+    currSum = Math.max(currSum + num, num)
+    // which is maximum, currSum or max Sum found earlier?
+    maxSoFar = Math.max(currSum, maxSoFar)
+  })
+  console.log('ans = ', maxSoFar)
+  /*
   // ======== handling (just) case #3 =========
   let arr = readline().split(' ').map(x => +x),
     maxSoFar = Number.MIN_SAFE_INTEGER, prefixSum = 0
@@ -60,6 +76,7 @@ function solve () {
   // this is very stupid
   maxSoFar = Math.max(...arr)
   console.log('ans = ', maxSoFar)
+  */
   /*
   // ============ Kadane's algorithm =========
   let arr = readline().split(' ').map(x => +x),
