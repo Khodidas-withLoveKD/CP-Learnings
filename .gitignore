@@ -1,3 +1,6 @@
 .DS_Store
 *.txt
-solve.js
+solve*
+*.class
+.idea/
+CP Learnings.iml
