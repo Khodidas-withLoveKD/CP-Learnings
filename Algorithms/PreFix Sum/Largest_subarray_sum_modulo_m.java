@@ -1,18 +1,26 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 import java.lang.*;
 
 public class Largest_subarray_sum_modulo_m {
-  static Scanner sc;
-  public static void main (String[] args) {
-    sc = new Scanner(System.in);
-    int testCases = Integer.parseInt(sc.nextLine());         // scan first-word
+  static BufferedReader br;
+
+  public static void main(String[] args) throws IOException {
+    int caseNo = 1;
+    br = new BufferedReader(new InputStreamReader(System.in));
+    int testCases = Integer.parseInt(br.readLine());         // scan first-word
     while (testCases > 0) {
+      System.out.println("Testcase: " + caseNo++);
       justDoIt();
       testCases--;
+      System.out.println("-------------");
     }
   }
-  static void justDoIt () {
-    /*
+
+  static void justDoIt() throws IOException {
+     /*
     Given an array of n elements and an integer m. The task is to find the maximum
     value of the sum of its subarray modulo m i.e find the sum of each
     subarray mod m and print the maximum value of this modulo operation.
@@ -44,25 +52,53 @@ public class Largest_subarray_sum_modulo_m {
     */
     // =============== SOLVE ==============
     // =========== My try ============
-    int n = Integer.parseInt(sc.nextLine()),
-    temp = n;
-    if (n == 1) {
-      System.out.println(0);
-      return;
+    int[] arr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer :: parseInt).toArray();
+    int prefixSum = 0,
+            m = Integer.parseInt(br.readLine()),
+            ans = 0;
+    /*
+      prefixSumArr is as the name suggest
+      first thing,
+      (a + m) % m = a % m
+      because (a + m) % m = a % m + m % m = a % m + 0
+      Also, it is very evident that the ans is when
+      a given range has sum such that, sum % m = m - 1 or closer to it
+      --------
+      Let's say the ans lies in tha range i to j
+      so, (prefixSumArr[j] - prefixSumArr[i]) % m = ans
+      but as prefixSumArr[i] > prefixSumArr[j] the ans can be negative.
+      But as we know the diff cannot be greater than m - 1
+      So, (prefixSumArr[j] - prefixSumArr[i] + m) % m = ans
+      --------
+      Now, it is quite evident that (prefixSumArr[j] - prefixSumArr[i] + m) % m must be m - 1 or closer to it
+      OR
+      prefixSumArr[j] - prefixSumArr[i] + m should be maximum
+      OR
+      prefixSumArr[j] - prefixSumArr[i] should be <= -1,
+      the closer the better
+      So, prefixSumArr[i] (should be) > prefixSumArr[j] and diff should be as small as possible
+    */
+    // a DS to implement above condition
+    TreeSet<Integer> ts = new TreeSet<>(); // Hashset can also be used, but is difficult to get the just higher element
+    Integer elem = 0;
+    // get prefixSum
+    for (int num : arr) {
+      prefixSum += num;
+      prefixSum %= m;
+      ts.add(prefixSum);
+      // get the closest element greater than prefixSum
+      elem = ts.higher(prefixSum);
+      // if not found, range is 0 to i
+      if (elem == null) {
+        elem = 0;
+      }
+      // (prefixSumArr[j] - prefixSumArr[i] + m) % m
+      elem = (prefixSum - elem + m) % m;
+      ans = Integer.max(elem, ans);
+      // sum can never be larger than m - 1
+      // so if found it
+      if (ans == m-1) break;
     }
-    ArrayList<Integer> list= new ArrayList<>(n);
-    while (temp-- > 0)
-      list.add(sc.nextInt());
-    System.out.println(list);
-    // two pointer method
-    // first pointer
-    System.out.println(printList(list));
-  }
-
-  static Boolean printList (ArrayList<Integer> list) {
-    for (int i: list) {
-      System.out.print(i + " ");
-    }
-    return false;
+    System.out.println("Max sum is " + ans);
   }
 }
