@@ -1,11 +1,11 @@
-import javafx.util.Pair;
+package Algorithms.Java_Specific;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
-import java.lang.*;
+import java.util.HashMap;
 
-public class solve {
+public class Hashmap_inside_hashmap {
   static BufferedReader br;
 
   public static void main(String[] args) throws IOException {
