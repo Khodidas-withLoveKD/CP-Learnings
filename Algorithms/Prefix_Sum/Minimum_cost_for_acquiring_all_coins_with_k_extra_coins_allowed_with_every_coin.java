@@ -49,6 +49,15 @@ public class Minimum_cost_for_acquiring_all_coins_with_k_extra_coins_allowed_wit
     }
     // sort it
     Collections.sort(al);
+    /* Approach 2
+    We can take atmost k+1 elements
+    So, the ans would be sum of ceil(n / (k+1)) elements
+    */
+    int limit = (int) Math.ceil((double)n/(k+1));
+    for (int i=0; i<limit; i++) {
+      ans += al.get(i);
+    }
+    /* Approach 1
     // take the minimum till al is not empty
     while (al.size() > 0) {
       // take out the min most
@@ -58,6 +67,7 @@ public class Minimum_cost_for_acquiring_all_coins_with_k_extra_coins_allowed_wit
         al.remove(al.size() - 1);
       }
     }
+    */
     System.out.println("ans = " + ans);
   }
 }
