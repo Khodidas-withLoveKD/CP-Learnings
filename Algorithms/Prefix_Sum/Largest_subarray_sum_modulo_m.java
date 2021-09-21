@@ -1,8 +1,10 @@
+package Algorithms.Prefix_Sum;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
-import java.lang.*;
+import java.util.Arrays;
+import java.util.TreeSet;
 
 public class Largest_subarray_sum_modulo_m {
   static BufferedReader br;
