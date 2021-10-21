@@ -73,10 +73,8 @@ public class Prefix_Sum_of_Matrix_Or_2D_Array {
       ans.add(ansList);
     }
     // remove first row in ans
+    ans.remove(0);
     System.out.println("al = " + al);
     System.out.println("ans = " + ans);
-  }
-  static void getAns(ArrayList<Integer> al, int i) {
-    System.out.println("ans = " + al.get(i - 1));
   }
 }
