@@ -63,12 +63,18 @@ public class search_an_element_in_a_sorted_and_pivoted_array {
     int pivot = findPivot(list);
     System.out.println("pivot = " + pivot);
     // pivot is end of first half
-    // do binary search in two halves
     int ans, len = 0;
-    ans = binarySearch(list.subList(0, pivot), key);
-    if (ans == -1) {
+    // compare with pivot first
+    if (key == list.get(pivot)) {
+      ans = pivot;
+    } else if (key < list.get(0)) {     // do binary search in two halves
+      // search right half
       ans = binarySearch(list.subList(pivot, list.size()), key);
-      len = pivot;
+      if (ans != -1) {
+        len = pivot;
+      }
+    } else {
+      ans = binarySearch(list.subList(0, pivot), key);
     }
     if (ans == -1) {
       System.out.println("KEY not found");
