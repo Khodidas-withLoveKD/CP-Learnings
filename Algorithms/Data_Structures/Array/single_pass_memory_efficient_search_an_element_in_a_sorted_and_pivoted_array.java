@@ -68,7 +68,7 @@ public class solve {
   // passing list everyTime will create a memory overhead. So, passing l and r as well
   private static int binarySearch(List<Integer> list, int l, int r, int key) {
     // termination
-    if (r <= l) return -1;
+    if (r == l && list.get(l) != key) return -1;
 
     int m = l + (r - l)/ 2;
     System.out.println("l = " + l + " | r = " + r + " | m = " + m);
