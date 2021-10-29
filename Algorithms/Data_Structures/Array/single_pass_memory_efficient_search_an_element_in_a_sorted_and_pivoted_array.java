@@ -1,8 +1,11 @@
-import java.io.IOException;
-import java.util.*;
-import java.lang.*;
+package Algorithms.Data_Structures.Array;
 
-public class solve {
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class single_pass_memory_efficient_search_an_element_in_a_sorted_and_pivoted_array {
   static Scanner sc;
   public static void main(String[] args) throws IOException {
     long startTime = System.currentTimeMillis();
