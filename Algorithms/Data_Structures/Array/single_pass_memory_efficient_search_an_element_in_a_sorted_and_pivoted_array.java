@@ -1,8 +1,11 @@
-import java.io.IOException;
-import java.util.*;
-import java.lang.*;
+package Algorithms.Data_Structures.Array;
 
-public class solve {
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class single_pass_memory_efficient_search_an_element_in_a_sorted_and_pivoted_array {
   static Scanner sc;
   public static void main(String[] args) throws IOException {
     long startTime = System.currentTimeMillis();
@@ -68,7 +71,7 @@ public class solve {
   // passing list everyTime will create a memory overhead. So, passing l and r as well
   private static int binarySearch(List<Integer> list, int l, int r, int key) {
     // termination
-    if (r <= l) return -1;
+    if (r == l && list.get(l) != key) return -1;
 
     int m = l + (r - l)/ 2;
     System.out.println("l = " + l + " | r = " + r + " | m = " + m);
