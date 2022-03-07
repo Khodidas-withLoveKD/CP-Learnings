@@ -1,0 +1,20 @@
+3
+6
+11 15 6 8 9 10
+16
+6
+11 15 26 38 9 10
+35
+6
+11 15 26 38 9 10
+45
+
+===============
+10 30 60
+15 45 95
+17 51 107
+==============
+javac solve.java && cat input.txt | java solve > output.txt
+
+For JS:
+cat input.txt | node solve.js > output.txt

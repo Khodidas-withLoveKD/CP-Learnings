@@ -1,0 +1,10 @@
+Testcase: 1
+Pair found at index: 2 and 5
+-------------
+Testcase: 2
+Pair found at index: 4 and 2
+-------------
+Testcase: 3
+KEY not found
+-------------
+Execution Time: 19ms
