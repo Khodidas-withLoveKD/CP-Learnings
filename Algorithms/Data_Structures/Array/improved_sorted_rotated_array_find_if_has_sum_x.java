@@ -1,8 +1,12 @@
-import java.io.IOException;
-import java.util.*;
-import java.lang.*;
+package Algorithms.Data_Structures.Array;
 
-public class solve {
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+public class improved_sorted_rotated_array_find_if_has_sum_x {
   static Scanner sc;
   public static void main(String[] args) throws IOException {
     long startTime = System.currentTimeMillis();
