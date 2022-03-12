@@ -1,8 +1,10 @@
-import java.io.IOException;
-import java.util.*;
-import java.lang.*;
+package Algorithms.Data_Structures.Queue;
 
-public class solve {
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.Scanner;
+
+public class PriorityQueue {
   static Scanner sc;
   public static void main(String[] args) throws IOException {
     long startTime = System.currentTimeMillis();
@@ -25,7 +27,7 @@ public class solve {
      /*
     PriorityQueue Demo
     */
-    PriorityQueue<Integer> pq = new PriorityQueue<>();
+    java.util.PriorityQueue<Integer> pq = new java.util.PriorityQueue<>();
     pq.add(1);
     pq.add(8);
     pq.add(2);
@@ -45,7 +47,7 @@ public class solve {
 
     printPQ(pq);
   }
-  private static void printPQ (PriorityQueue<Integer> pq) {
+  private static void printPQ (java.util.PriorityQueue<Integer> pq) {
     for (Integer element : pq) {
       System.out.println(" elem = " + element);
     }

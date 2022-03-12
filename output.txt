@@ -1,10 +1,19 @@
 Testcase: 1
-Pair found at index: 2 and 5
--------------
-Testcase: 2
-Pair found at index: 4 and 2
--------------
-Testcase: 3
-KEY not found
+pq = [1, 1, 2, 3, 4, 7, 10, 8]
+1
+1
+1
+1
+2
+3
+ elem = 4
+ elem = 8
+ elem = 7
+ elem = 10
+Via Iterator
+ it elem = 4
+ it elem = 8
+ it elem = 7
+ it elem = 10
 -------------
 Execution Time: 20ms
