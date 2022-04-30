@@ -2,7 +2,7 @@ package Algorithms.Data_Structures.Queue;
 
 import java.io.IOException;
 import java.util.Iterator;
-import java.util.Scanner;
+import java.util.*;
 
 public class PriorityQueue {
   static Scanner sc;
@@ -46,6 +46,7 @@ public class PriorityQueue {
     System.out.println(pq.poll());
 
     printPQ(pq);
+    Collections.reverse(pq);
   }
   private static void printPQ (java.util.PriorityQueue<Integer> pq) {
     for (Integer element : pq) {

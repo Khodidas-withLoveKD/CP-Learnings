@@ -1,19 +1,46 @@
 Testcase: 1
-pq = [1, 1, 2, 3, 4, 7, 10, 8]
-1
-1
-1
-1
-2
-3
- elem = 4
- elem = 8
- elem = 7
- elem = 10
-Via Iterator
- it elem = 4
- it elem = 8
- it elem = 7
- it elem = 10
+BEOFRE arr = [10, 80, 90, 30, 40, 100, 70]
+-----
+ BEFORE arr = 
+[10, 80, 90, 30, 40, 100, 70]
+arr[0] = 10 |  arr[0] = 10
+arr[1] = 80 |  arr[3] = 30
+arr[2] = 90 |  arr[4] = 40
+-----
+ AFTER arr = 
+[10, 30, 40, 70, 90, 100, 80]
+pivotIndex = 3
+-----
+ BEFORE arr = 
+[10, 30, 40, 70, 90, 100, 80]
+arr[0] = 10 |  arr[0] = 10
+arr[1] = 30 |  arr[1] = 30
+-----
+ AFTER arr = 
+[10, 30, 40, 70, 90, 100, 80]
+pivotIndex = 2
+-----
+ BEFORE arr = 
+[10, 30, 40, 70, 90, 100, 80]
+arr[0] = 10 |  arr[0] = 10
+-----
+ AFTER arr = 
+[10, 30, 40, 70, 90, 100, 80]
+pivotIndex = 1
+-----
+ BEFORE arr = 
+[10, 30, 40, 70, 90, 100, 80]
+-----
+ AFTER arr = 
+[10, 30, 40, 70, 80, 100, 90]
+pivotIndex = 4
+-----
+ BEFORE arr = 
+[10, 30, 40, 70, 80, 100, 90]
+-----
+ AFTER arr = 
+[10, 30, 40, 70, 80, 90, 100]
+pivotIndex = 5
+AFTER arr = [10, 30, 40, 70, 80, 90, 100]
 -------------
-Execution Time: 20ms
+Execution Time: 18ms
