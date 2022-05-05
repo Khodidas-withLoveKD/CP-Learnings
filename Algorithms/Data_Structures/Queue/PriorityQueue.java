@@ -46,7 +46,7 @@ public class PriorityQueue {
     System.out.println(pq.poll());
 
     printPQ(pq);
-    Collections.reverse(pq);
+//    Collections.reverse(pq);
   }
   private static void printPQ (java.util.PriorityQueue<Integer> pq) {
     for (Integer element : pq) {

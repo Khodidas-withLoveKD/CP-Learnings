@@ -1,8 +1,10 @@
-import java.io.IOException;
-import java.util.*;
-import java.lang.*;
+package Algorithms.SortingAndSearching;
 
-public class solve {
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Merge_Without_Extra_Space {
   static Scanner sc;
   public static void main(String[] args) throws IOException {
     long startTime = System.currentTimeMillis();
