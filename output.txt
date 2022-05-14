@@ -1,8 +1,0 @@
-Testcase: 1
-AFTWer arr1 = [1, 3, 5, 7]
-AFTER arr2 = [0, 2, 6, 8, 9]
-------
-AFTWer arr1 = [0, 1, 2, 3]
-AFTER arr2 = [5, 6, 7, 8, 9]
--------------
-Execution Time: 18ms
