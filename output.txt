@@ -1,0 +1,10 @@
+Median = 14.0
+Median = 3.0
+Median = 3.0
+Median = 4.0
+Median = 4.0
+Median = 3.5
+Median = 4.0
+Median = 3.0
+Median = 6.0
+Median = 4.0

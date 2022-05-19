@@ -1,7 +1,8 @@
-import java.util.*;
-import java.lang.*;
+package Algorithms.SortingAndSearching;
 
-public class solve {
+import java.util.Scanner;
+
+public class Median_Of_Two_Sorted_Arrays_Of_Different_Sizes_Success {
   static Scanner sc;
   public static void main (String[] args) {
     sc = new Scanner(System.in);
