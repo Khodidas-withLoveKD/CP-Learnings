@@ -1,7 +1,9 @@
-import java.util.*;
-import java.lang.*;
+package Algorithms.SortingAndSearching;
 
-public class solve {
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Merge_Two_Sorted_Arrays_Median_Approach {
   static Scanner sc;
   public static void main (String[] args) {
     long startTime = System.currentTimeMillis();
