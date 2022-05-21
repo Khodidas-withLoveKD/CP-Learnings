@@ -1,9 +1,10 @@
+package Algorithms.Data_Structures.Array;
+
 import javafx.util.Pair;
 
 import java.util.*;
-import java.lang.*;
 
-public class solve {
+public class MergeKSortedArrays {
   static Scanner sc;
   public static void main (String[] args) {
     long startTime = System.currentTimeMillis();
