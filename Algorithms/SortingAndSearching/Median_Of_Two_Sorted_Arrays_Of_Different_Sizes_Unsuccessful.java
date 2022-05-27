@@ -2,7 +2,7 @@ package Algorithms.SortingAndSearching;
 
 import java.util.Scanner;
 
-public class Median_Of_Two_Sorted_Arrays_Of_Different_Sizes {
+class Median_Of_Two_Sorted_Arrays_Of_Different_Sizes_Unsuccssful {
   static Scanner sc;
   public static void main (String[] args) {
     sc = new Scanner(System.in);
