@@ -70,6 +70,9 @@ public class CountInversionsV1 {
       tempArr[k++] = arr[j++];
       invCount += mid - i;
     }
+    //copy tempArr in arr
+    for (int ti = 0, ai = l; ti < tempArr.length; ti++, ai++) arr[ai] = tempArr[ti];
+
     return invCount;
   }
 }
