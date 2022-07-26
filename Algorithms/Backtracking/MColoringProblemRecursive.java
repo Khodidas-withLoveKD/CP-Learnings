@@ -1,9 +1,9 @@
-import javafx.util.Pair;
+package Algorithms.Backtracking;
 
-import java.util.*;
-import java.lang.*;
+import java.util.Arrays;
+import java.util.Scanner;
 
-public class solve {
+public class MColoringProblemRecursive {
   static Scanner sc;
   public static void main (String[] args) {
     long startTime = System.currentTimeMillis();
