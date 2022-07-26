@@ -1,9 +1,11 @@
-import javafx.util.Pair;
+package Algorithms.Strings;
 
-import java.util.*;
-import java.lang.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.TreeSet;
 
-public class solve {
+public class GenerateAllPalindromicPermutations {
   static Scanner sc;
   public static void main (String[] args) {
     long startTime = System.currentTimeMillis();
