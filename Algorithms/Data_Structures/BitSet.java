@@ -1,9 +1,8 @@
-import javafx.util.Pair;
+package Algorithms.Data_Structures;
 
-import java.util.*;
-import java.lang.*;
+import java.util.Scanner;
 
-public class solve {
+public class BitSet {
   static Scanner sc;
   public static void main (String[] args) {
     long startTime = System.currentTimeMillis();
@@ -26,8 +25,8 @@ public class solve {
       Bitset
     */
 
-    BitSet bs1 = new BitSet();
-    BitSet bs2 = new BitSet();
+    java.util.BitSet bs1 = new java.util.BitSet();
+    java.util.BitSet bs2 = new java.util.BitSet();
 
     bs1.set(3);
     System.out.println(bs1.get(5));
@@ -54,7 +53,7 @@ public class solve {
     bs2.set(9);
     bs2.set(2);
 
-    BitSet bs3 = (BitSet) bs1.clone();
+    java.util.BitSet bs3 = (java.util.BitSet) bs1.clone();
     System.out.println("\n====\nNEW bs1 = " + bs1);
     System.out.println("NEW bs2 = " + bs2);
     System.out.println("Before AND bs1 = " + bs1);
@@ -78,7 +77,7 @@ public class solve {
     System.out.println("bs1.intersects(bs2) = " + bs1.intersects(bs2));
 
     System.out.println("BEFORE INTERSECT bs1 = " + bs1);
-    BitSet bs4 = new BitSet();
+    java.util.BitSet bs4 = new java.util.BitSet();
     bs4.set(1);
     bs4.set(3);
     bs4.set(5);
@@ -86,7 +85,7 @@ public class solve {
     System.out.println("bs4.intersects(bs1) = " + bs4.intersects(bs1));
 
     System.out.println("===\nbs4.equals(bs1) = " + bs4.equals(bs1));
-    BitSet bs5 = (BitSet) bs4.clone();
+    java.util.BitSet bs5 = (java.util.BitSet) bs4.clone();
     System.out.println("===\nbs4.equals(bs5) = " + bs4.equals(bs5));
 
   }
