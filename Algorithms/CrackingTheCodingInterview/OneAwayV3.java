@@ -1,7 +1,8 @@
-import java.util.*;
-import java.lang.*;
+package Algorithms.CrackingTheCodingInterview;
 
-public class solve {
+import java.util.Scanner;
+
+public class OneAwayV3 {
   static Scanner sc;
   public static void main (String[] args) {
     long startTime = System.currentTimeMillis();
