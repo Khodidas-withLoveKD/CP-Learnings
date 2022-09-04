@@ -15,14 +15,14 @@ print(math.factorial(4))
 
 print(1e100)
 print(-1e-100)
-print('gcd = ' + str(math.gcd(45,25, 75)))
-print('lcm = ' + str(math.lcm(45,25, 75)))
+print('gcd = ' + str(math.gcd(45, 25, 75)))
+print('lcm = ' + str(math.lcm(45, 25, 75)))
 print('isqrt = ' + str(math.isqrt(9)))
 
 print(math.modf(2.4))
 print('perm = ', math.perm(4,2))
-print('product of all nums = ', math.prod([1,2,3,4,5], start=2))
-print('remainder = ', math.remainder(20,3))
+print('product of all nums = ', math.prod([1, 2, 3, 4, 5], start=2))
+print('remainder = ', math.remainder(20, 3))
 
 print(1e3)
 print(1e-3)
