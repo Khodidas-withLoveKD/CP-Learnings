@@ -15,7 +15,7 @@ quit - to stop the game""")
 
 print("Type 'Help' to get the list of commands")
 user_input = ''
-car_state = ''
+car_started = False
 
 while user_input != 'quit':
     print('-----')
@@ -23,17 +23,17 @@ while user_input != 'quit':
     if user_input == 'help':
         show_commands()
     elif user_input == 'start':
-        if car_state == 'started':
+        if car_started:
             print('Car is already started')
         else:
             print('The car has started. Vroom Vroom!!!')
-            car_state = 'started'
+            car_started = True
     elif user_input == 'stop':
-        if car_state == 'stopped':
+        if not car_started:
             print('Car is already stopped')
         else:
             print('The car stopped. SCREEEEEECH!!!')
-            car_state = 'stopped'
+            car_started = False
     elif user_input == 'quit':
         print('Game Over!!')
     else:
