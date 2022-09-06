@@ -8,11 +8,10 @@
 import random
 
 number_to_be_guessed = random.randint(0, 9)
-# print(f'Ans = {number_to_be_guessed}')
-ans_found = False
+print(f'Ans = {number_to_be_guessed}')
 attempts_left = 3
 
-while not ans_found and attempts_left:
+while attempts_left:
     print(f'---------\nAttempt: {3 - attempts_left + 1}')
     user_guess = int(input('Enter your guess: '))
     if user_guess < number_to_be_guessed:
@@ -21,8 +20,7 @@ while not ans_found and attempts_left:
         print('Too High')
     else:
         print('Yaaayyy!!! You guessed it correctly :)')
-        ans_found = True
+        break
     attempts_left -= 1
-
-if not ans_found:
-    print('Awwww :( Better luck next time Buddy')
+else:  # Will get executed if we jump out of the while loop using break
+    print('=======\nAwwww :( Better luck next time Buddy')
