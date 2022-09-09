@@ -1,4 +1,5 @@
 import math
+from utils import find_max
 
 names = ['khodidas', 'loves', 'Kiran', 'so', 'much']
 print(names)
@@ -13,12 +14,7 @@ print(names)
 
 print('=== FIND LARGEST NUMBER IN A LIST ====')
 numbers = [1, 23, 4, 75, 7, 3, 56, 0]
-max_num = -math.inf
-# max_num = numbers[0]
-for num in numbers:
-    if num > max_num:
-        max_num = num
-print(f'Largest: {max_num}')
+print(f'Largest: {find_max(numbers)}')
 
 print('===== 2D LISTS (MATRIX) =====')
 matrix = [
