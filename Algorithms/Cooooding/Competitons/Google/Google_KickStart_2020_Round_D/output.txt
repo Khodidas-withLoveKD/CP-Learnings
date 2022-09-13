@@ -1,0 +1,16 @@
+Case #1: sum[2] = 3
+sum[3] = 2
+sum[4] = 3
+2
+Case #2: sum[2] = 8
+sum[3] = 10
+sum[8] = 10
+sum[9] = 8
+8
+Case #3: sum[1] = 13
+sum[2] = 13
+sum[3] = 13
+sum[5] = 15
+sum[7] = 17
+sum[9] = 15
+13

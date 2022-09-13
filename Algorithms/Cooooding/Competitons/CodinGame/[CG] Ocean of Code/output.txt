@@ -1,0 +1,23 @@
+width=15
+height=15
+myID=0
+----------------------
+2 13
+Inside gameLoop
+Give Opponent Oreder: NA
+NA malyu
+INSIDE NORTH
+INSIde ELSE
+INSIDE SOUTH
+INSIDE WEST
+MOVE W TORPEDO
+Inside gameLoop
+Give Opponent Oreder: MOVE S
+INSIDE NORTH
+MOVE N TORPEDO
+Inside gameLoop
+Give Opponent Oreder: MOVE N
+INSIDE NORTH
+MOVE N TORPEDO
+Inside gameLoop
+Give Opponent Oreder: TORPEDO 3 5

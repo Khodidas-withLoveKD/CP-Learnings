@@ -1,0 +1,45 @@
+Turn = 1
+AliceCAn = 3
+InsideIF
+Turn = 0
+BObCAn = 5
+Turn = 1
+3 3 5
+Turn = 1
+AliceCAn = 1000
+InsideIF
+Turn = 0
+2 1000 0
+Turn = 1
+AliceCAn = 1
+InsideIF
+Turn = 0
+2 1 0
+Turn = 1
+AliceCAn = 1
+InsideIF
+Turn = 0
+BObCAn = 13
+Turn = 1
+AliceCAn = 14
+Turn = 0
+BObCAn = 23
+Turn = 1
+AliceCAn = 30
+Turn = 0
+6 45 36
+Turn = 1
+AliceCAn = 2
+InsideIF
+Turn = 0
+2 2 0
+Turn = 1
+AliceCAn = 1
+InsideIF
+Turn = 0
+2 1 0
+Turn = 1
+AliceCAn = 1
+InsideIF
+Turn = 0
+2 1 0

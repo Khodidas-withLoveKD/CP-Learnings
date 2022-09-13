@@ -1,0 +1,852 @@
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+class Solution
+{
+    int[] a=new int[100];
+    int[,] argument=new int[100,2];
+    bool[,] count=new bool[100,2];
+    string[] op = new string[100];
+    string[] arg1 = new string[100];
+    string[] arg2= new string[100];
+    bool[] checker = new bool[100];
+    bool flag=false;
+    bool[,] check_argument=new bool[100,2];
+    
+    bool validate(int N)
+    {
+        for(int i=0;i<N;i++)
+            for(int j=0;j<2;j++)
+                if(count[i,j]==true)
+                    return false;
+                else
+                    continue;
+                    
+        return true;
+    }
+    void check_forward(int N)
+    {
+        for (int i = 0; i < 0; i++)
+        {
+            if(count[i,0]==true && count[i,1]==true)
+              {
+                    switch(op[i])
+                {
+                     case "MULT":
+                                a[i]=a[argument[i,0]]*a[argument[i,1]];
+                                break;
+                    case "VALUE":
+                                operation(op[i],i,0);
+                                break;
+                        default:
+                                operation(op[i],i,0);
+                                operation(op[i],i,1);
+                                break;
+                }
+            }
+            else if(count[i,0]==true && count[i,1]==false)
+              {
+                    switch(op[i])
+                {
+                    case "VALUE":
+                                operation(op[i],i,0);
+                                break;
+                        default:
+                                operation(op[i],i,0);
+                                break;
+                }
+            }
+            else if(count[i,0]==false && count[i,1]==true)
+              {
+                    operation(op[i],i,1);
+            }
+        }
+        
+    }
+    
+    void check_backward(int N)
+    {
+        for (int i = N-1; i >= 0; i--)
+        {
+            if(count[i,0]==true && count[i,1]==true)
+              {
+                    switch(op[i])
+                {
+                     case "MULT":
+                                a[i]=a[argument[i,0]]*a[argument[i,1]];
+                                break;
+                    case "VALUE":
+                                operation(op[i],i,0);
+                                break;
+                        default:
+                                operation(op[i],i,0);
+                                operation(op[i],i,1);
+                                break;
+                }
+            }
+            else if(count[i,0]==true && count[i,1]==false)
+              {
+                    switch(op[i])
+                {
+                    case "VALUE":
+                                operation(op[i],i,0);
+                                break;
+                        default:
+                                operation(op[i],i,0);
+                                break;
+                }
+            }
+            else if(count[i,0]==false && count[i,1]==true)
+              {
+                    operation(op[i],i,1);
+            }
+        }
+    }
+    
+    void operation(string opt, int i, int n)
+    {
+        switch(opt)
+                {
+                    
+                    case "VALUE":
+                                a[i]=a[argument[i,n]];
+                                break;
+                    case "ADD":
+                                a[i]+=a[argument[i,n]];
+                                break;
+                     case "SUB":
+                                if(n==1)
+                                    a[i]+=a[argument[i,n]];
+                                else
+                                    a[i]-=a[argument[i,n]];
+                                break;
+                     case "MULT":
+                                if(n==1)
+                                    a[i]=a[argument[i,n]]*int.Parse(arg2[i]);
+                                else
+                                    a[i]=a[argument[i,n]]*int.Parse(arg1[i]);
+                                break;
+                }
+    }
+    
+    int check(string val, int j,int n)
+    {
+        string arg="";
+        int num=0;
+        
+        if(val[0]=='$')
+        {    for(int i=1;i<val.Length;i++)
+                arg+=val[i];
+            int k=int.Parse(arg);
+            
+            if(k>j)
+            {
+                argument[j,n]=k;
+                count[j,n]=true;
+               // check_argument[j,n]=false;
+            }
+            else
+                {
+                    num=a[k];
+                    //check_argument[j,n]=true;
+                }
+        }
+        else
+            {
+                num=int.Parse(val);
+                 //check_argument[j,n]=true;
+            }
+            
+        return num;
+    }
+    
+    static void Main(string[] args)
+    {
+        Solution s= new Solution();
+        
+        int N = int.Parse(Console.ReadLine());
+        for (int i = 0; i < N; i++)
+        {
+            string[] inputs = Console.ReadLine().Split(' ');
+            s.op[i] = inputs[0];
+            s.arg1[i] = inputs[1];
+            s.arg2[i] = inputs[2];
+            //n1=int.Parse(arg1);
+           // n2=int.Parse(arg2);
+            
+            switch(s.op[i])
+            {
+                case "VALUE":
+                            s.a[i]=s.check(s.arg1[i],i,0);
+                            s.check_argument[i,1]=true;
+                            break;
+                case "ADD":
+                            s.a[i]=s.check(s.arg1[i],i,0)+s.check(s.arg2[i],i,1);
+                            break;
+                 case "SUB":
+                            s.a[i]=s.check(s.arg1[i],i,0)-s.check(s.arg2[i],i,1);
+                            break;
+                 case "MULT":
+                            s.a[i]=s.check(s.arg1[i],i,0)*s.check(s.arg2[i],i,1);
+                            break;
+            }
+        }
+        
+        while(s.flag==false)
+        {
+            s.check_backward(N);
+            s.flag=s.validate(N);
+            if(s.flag==true)
+                break;
+            s.check_forward(N);
+            s.flag=s.validate(N);
+        }
+        
+        for (int i = 0; i < N; i++)
+        {
+
+            // Write an action using Console.WriteLine()
+            // To debug: Console.Error.WriteLine("Debug messages...");
+
+            Console.WriteLine(s.a[i]);
+        }
+    }
+}
+
+---------------------------------------------------------
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+class Solution
+{
+    int[] a=new int[100];
+    int[,] argument=new int[100,2];
+    bool[,] count=new bool[100,2];
+    string[] op = new string[100];
+    string[] arg1 = new string[100];
+    string[] arg2= new string[100];
+    bool[] checker = new bool[100];
+    bool flag=false;
+    bool[,] check_argument=new bool[100,2];
+    
+    bool validate(int N)
+    {
+        for(int i=0;i<N;i++)
+            for(int j=0;j<2;j++)
+                {
+                    Console.WriteLine("C["+i+","+j+"]="+count[i,j]);
+                    if(count[i,j]==true)
+                   return false;
+                else
+                    continue;
+                }
+                    
+        return true;
+    }
+    void check_forward(int N)
+    { char f='f';
+    Console.WriteLine("Inside FORWARD");
+        for (int i = 0; i < 0; i++)
+        {
+            if(count[i,0]==true && count[i,1]==true)
+              {
+                    switch(op[i])
+                {
+                     case "MULT":
+                             if(argument[i,0]>i)
+                                     count[i,0]=true;
+                                 else 
+                                     count[i,0]=false;
+                                     
+                                if(argument[i,1]>i)
+                                     count[i,1]=true;
+                                 else 
+                                     count[i,1]=false;
+                                     
+                                a[i]=a[argument[i,0]]*a[argument[i,1]];
+                                break;
+                    case "VALUE":
+                                operation(op[i],i,0,f);
+                                break;
+                        default:
+                                operation(op[i],i,0,f);
+                                operation(op[i],i,1,f);
+                                break;
+                }
+            }
+            else if(count[i,0]==true && count[i,1]==false)
+              {
+                    switch(op[i])
+                {
+                    case "VALUE":
+                                operation(op[i],i,0,f);
+                                break;
+                        default:
+                                operation(op[i],i,0,f);
+                                break;
+                }
+            }
+            else if(count[i,0]==false && count[i,1]==true)
+              {
+                    operation(op[i],i,1,f);
+            }
+        }
+        
+    }
+    
+    void check_backward(int N)
+    {
+        char b='b';
+        Console.WriteLine("Inside BACKWARD");
+        for (int i = N-1; i >= 0; i--)
+        {
+            if(count[i,0]==true && count[i,1]==true)
+              {
+                    switch(op[i])
+                {
+                     case "MULT":
+                                if(count[argument[i,0],0]==true || count[argument[i,0],1]==true)
+                                     count[i,0]=true;
+                                 else 
+                                     count[i,0]=false;
+                                     
+                                if(argument[i,1]<i)
+                                     count[i,1]=true;
+                                 else 
+                                     count[i,1]=false;
+                                     
+                                a[i]=a[argument[i,0]]*a[argument[i,1]];
+                                break;
+                    case "VALUE":
+                                operation(op[i],i,0,b);
+                                break;
+                        default:
+                                operation(op[i],i,0,b);
+                                operation(op[i],i,1,b);
+                                break;
+                }
+            }
+            else if(count[i,0]==true && count[i,1]==false)
+              {
+                    switch(op[i])
+                {
+                    case "VALUE":
+                                operation(op[i],i,0,b);
+                                break;
+                        default:
+                                operation(op[i],i,0,b);
+                                break;
+                }
+            }
+            else if(count[i,0]==false && count[i,1]==true)
+              {
+                    operation(op[i],i,1,b);
+            }
+        }
+    }
+    
+    void operation(string opt, int i, int n, char back_for)
+    {
+        if((argument[i,n]>i && back_for=='b') || (argument[i,n]<1 && back_for=='f'))
+            count[i,n]=true;
+        else 
+            count[i,n]=false;
+        switch(opt)
+                {
+                    
+                    case "VALUE":
+                                a[i]=a[argument[i,n]];
+                                break;
+                    case "ADD":
+                                a[i]+=a[argument[i,n]];
+                                break;
+                     case "SUB":
+                                if(n==0)
+                                    a[i]+=a[argument[i,n]];
+                                else
+                                    a[i]-=a[argument[i,n]];
+                                break;
+                     case "MULT":
+                                if(n==1)
+                                    a[i]=a[argument[i,n]]*int.Parse(arg2[i]);
+                                else
+                                    a[i]=a[argument[i,n]]*int.Parse(arg1[i]);
+                                break;
+                }
+    }
+    
+    int check(string val, int j,int n)
+    {
+        string arg="";
+        int num=0;
+        
+        if(val[0]=='$')
+        {    for(int i=1;i<val.Length;i++)
+                arg+=val[i];
+            int k=int.Parse(arg);
+            
+            if(k>j)
+            {
+                argument[j,n]=k;
+                count[j,n]=true;
+               // check_argument[j,n]=false;
+            }
+            else
+                {
+                    num=a[k];
+                    //check_argument[j,n]=true;
+                }
+        }
+        else
+            {
+                num=int.Parse(val);
+                 //check_argument[j,n]=true;
+            }
+            
+        return num;
+    }
+    
+    static void Main(string[] args)
+    {
+        Solution s= new Solution();
+        //while(true);
+        int N = int.Parse(Console.ReadLine());
+        for (int i = 0; i < N; i++)
+        {
+            string[] inputs = Console.ReadLine().Split(' ');
+            s.op[i] = inputs[0];
+            s.arg1[i] = inputs[1];
+            s.arg2[i] = inputs[2];
+            //n1=int.Parse(arg1);
+           // n2=int.Parse(arg2);
+            
+            switch(s.op[i])
+            {
+                case "VALUE":
+                            s.a[i]=s.check(s.arg1[i],i,0);
+                            //s.cou[i,1]=true;
+                            break;
+                case "ADD":
+                            s.a[i]=s.check(s.arg1[i],i,0)+s.check(s.arg2[i],i,1);
+                            break;
+                 case "SUB":
+                            s.a[i]=s.check(s.arg1[i],i,0)-s.check(s.arg2[i],i,1);
+                            break;
+                 case "MULT":
+                            s.a[i]=s.check(s.arg1[i],i,0)*s.check(s.arg2[i],i,1);
+                            break;
+            }
+        }
+        
+        while(s.flag==false)
+        {
+            s.check_backward(N);
+            s.flag=s.validate(N);
+            if(s.flag==true)
+                break;
+            s.check_forward(N);
+            s.flag=s.validate(N);
+        }
+        
+        for (int i = 0; i < N; i++)
+        {
+
+            // Write an action using Console.WriteLine()
+            // To debug: Console.Error.WriteLine("Debug messages...");
+
+            Console.WriteLine(s.a[i]);
+        }
+    }
+}
+
+C[0,0]=True
+C[0,1]=False
+C[1,0]=False
+C[2,0]=False
+C[2,1]=False
+C[3,0]=True
+C[3,1]=False
+Inside BACKWARD
+Iside FOR
+Inside ELSe IF
+BackwardC[3,0]=True
+BAckwardC[3,1]=False
+Inside Operation
+Inside Operation C[3,0]=True
+BackwardC[3,0]=True
+BackwardC[3,1]=True
+Iside FOR
+BackwardC[2,0]=False
+BackwardC[2,1]=False
+Iside FOR
+BackwardC[1,0]=False
+BackwardC[1,1]=False
+Iside FOR
+Inside ELSe IF
+BackwardC[0,0]=True
+BAckwardC[0,1]=False
+Inside Operation
+Inside Operation C[0,0]=False
+BackwardC[0,0]=False
+BackwardC[0,1]=False
+C[0,0]=False
+C[0,1]=False
+C[1,0]=False
+C[1,1]=False
+C[2,0]=False
+C[2,1]=False
+C[3,0]=True
+C[3,1]=True
+After SECOnd LOO
+C[0,0]=False
+C[0,1]=False
+C[1,0]=False
+C[1,1]=False
+C[2,0]=False
+C[2,1]=False
+C[3,0]=True
+Inside FORWARD
+C[0,0]=False
+C[0,1]=False
+C[1,0]=False
+C[1,1]=False
+C[2,0]=False
+C[2,1]=False
+C[3,0]=True
+Inside BACKWARD
+Iside FOR
+BackwardC[3,0]=False
+BackwardC[3,1]=False
+Iside FOR
+BackwardC[2,0]=False
+BackwardC[2,1]=False
+Iside FOR
+BackwardC[1,0]=False
+BackwardC[1,1]=False
+Iside FOR
+BackwardC[0,0]=False
+BackwardC[0,1]=False
+C[0,0]=False
+C[0,1]=False
+C[1,0]=False
+C[1,1]=False
+C[2,0]=False
+C[2,1]=False
+C[3,0]=False
+C[3,1]=False
+After SECOnd LOO
+C[0,0]=False
+C[0,1]=False
+C[1,0]=False
+C[1,1]=False
+C[2,0]=False
+C[2,1]=False
+C[3,0]=False
+C[3,1]=False
+-1
+3
+11
+1
+----------------------------
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+class Solution
+{
+    int[] a=new int[100];
+    int[,] k=new int[100,2];
+    int[,] argument=new int[100,2];
+    bool[,] count=new bool[100,2];
+    string[] op = new string[100];
+    string[] arg1 = new string[100];
+    string[] arg2= new string[100];
+    bool[] checker = new bool[100];
+    bool flag=false;
+    bool[,] check_argument=new bool[100,2];
+    
+    void loo(int N)
+    {
+        for(int i=0;i<N;i++)
+            for(int j=0;j<2;j++)
+                Console.WriteLine("C["+i+","+j+"]="+count[i,j]);
+    }
+    bool validate(int N)
+    {
+        for(int i=0;i<N;i++)
+            for(int j=0;j<2;j++)
+                {
+                    Console.WriteLine("C["+i+","+j+"]="+count[i,j]);
+                    if(count[i,j]==true)
+                   return false;
+                else
+                    continue;
+                }
+                    
+        return true;
+    }
+    void check_forward(int N)
+    { //char f='f';
+    Console.WriteLine("Inside FORWARD");
+        for (int i = 0; i < 0; i++)
+        {
+            if(count[i,0]==true && count[i,1]==true)
+              {
+                    switch(op[i])
+                {
+                     case "MULT":
+                             if(count[argument[i,0],0]==true || count[argument[i,0],1]==true)
+                                     count[i,0]=true;
+                                 else 
+                                     count[i,0]=false;
+                                     
+                               if(count[argument[i,1],0]==true || count[argument[i,1],1]==true)
+                                     count[i,1]=true;
+                                 else 
+                                     count[i,1]=false;
+                                     
+                                a[i]=a[argument[i,0]]*a[argument[i,1]];
+                                break;
+                    case "VALUE":
+                                operation(op[i],i,0);
+                                break;
+                        default:
+                                operation(op[i],i,0);
+                                operation(op[i],i,1);
+                                break;
+                }
+            }
+            else if(count[i,0]==true && count[i,1]==false)
+              {
+                    switch(op[i])
+                {
+                    case "VALUE":
+                                operation(op[i],i,0);
+                                break;
+                        default:
+                                operation(op[i],i,0);
+                                break;
+                }
+            }
+            else if(count[i,0]==false && count[i,1]==true)
+              {
+                    operation(op[i],i,1);
+            }
+            Console.WriteLine("ForwardC["+i+",0]="+count[i,0]);
+             Console.WriteLine("ForwardC["+i+",1]="+count[i,1]);
+        }
+        
+    }
+    
+    void check_backward(int N)
+    {
+        //char b='b';
+        Console.WriteLine("Inside BACKWARD");
+        for (int i = N-1; i >= 0; i--)
+        {
+            Console.WriteLine("Iside FOR");
+            if(count[i,0]==true && count[i,1]==true)
+              {
+                  Console.WriteLine("Inside IF");
+                    switch(op[i])
+                {
+                     case "MULT":
+                                if(count[argument[i,0],0]==true || count[argument[i,0],1]==true)
+                                     count[i,0]=true;
+                                 else 
+                                     count[i,0]=false;
+                                     
+                               if(count[argument[i,1],0]==true || count[argument[i,1],1]==true)
+                                     count[i,1]=true;
+                                 else 
+                                     count[i,1]=false;
+                                     
+                                a[i]=a[argument[i,0]]*a[argument[i,1]];
+                                break;
+                    case "VALUE":
+                                operation(op[i],i,0);
+                                break;
+                        default:
+                                operation(op[i],i,0);
+                                operation(op[i],i,1);
+                                break;
+                }
+            }
+            else if(count[i,0]==true && count[i,1]==false)
+              {
+                  Console.WriteLine("Inside ELSe IF");
+                  Console.WriteLine("BackwardC["+i+",0]="+count[i,0]);
+                  Console.WriteLine("BAckwardC["+i+",1]="+count[i,1]);
+                    switch(op[i])
+                {
+                    case "VALUE":
+                                operation(op[i],i,0);
+                                break;
+                        default:
+                                operation(op[i],i,0);
+                                break;
+                }
+            }
+            else if(count[i,0]==false && count[i,1]==true)
+              {
+                    operation(op[i],i,1);
+            }
+             Console.WriteLine("Backward C["+i+",0]="+count[i,0]);
+             Console.WriteLine("Backward C["+i+",1]="+count[i,1]);
+        }
+    }
+    
+    void operation(string opt, int i, int n)
+    {
+        Console.WriteLine("Inside Operation");
+        if(count[argument[i,n],0]==true || count[argument[i,n],1]==true)
+                                     count[i,n]=true;
+                                 else 
+                                     count[i,n]=false;
+        
+          Console.WriteLine("After Count Operation C["+i+","+n+"]="+count[i,n]);
+                               /*if(count[argument[i,1],0]==true || count[argument[i,1],1]==true)
+                                     count[i,1]=true;
+                                 else 
+                                     count[i,1]=false;*/
+                                     
+        switch(opt)
+                {
+                    
+                    case "VALUE":
+                                a[i]=a[argument[i,n]];
+                                break;
+                    case "ADD":
+                                a[i]+=a[argument[i,n]];
+                                break;
+                     case "SUB":
+                                if(n==0)
+                                    a[i]+=a[argument[i,n]];
+                                else
+                                    a[i]-=a[argument[i,n]];
+                                break;
+                     case "MULT":
+                                if(n==0 && count[i,0]==false)//count[argument[i,n],n]==false)
+                                    a[i]=a[argument[i,n]]*a[k[i,1]];
+                                else if(n==1 && count[i,1]==false)//count[argument[i,n],n]==false)
+                                    a[i]=a[argument[i,n]]*a[k[i,0]];
+                                break;
+                }
+                 Console.WriteLine("After Inside Operation C["+i+","+n+"]="+count[i,n]);
+                 Console.WriteLine("After Inside Operation C["+i+",0]="+count[i,0]);
+    }
+    
+    int check(string val, int j,int n)
+    {
+        string arg="";
+        int num=0;
+        //Console.WriteLine("Val["+j+"]="+val);
+        if(val[0]=='$')
+        {    for(int i=1;i<val.Length;i++)
+                arg+=val[i];
+                
+             k[j,n]=int.Parse(arg);
+            //Console.WriteLine("K["+j+","+n+"]="+k[j,n]);
+            
+            if(k[j,n]>j || count[k[j,n],0]==true || count[k[j,n],1]==true)
+            {
+                argument[j,n]=k[j,n];
+                //Console.WriteLine("Argument["+j+","+n+"]="+k);
+                count[j,n]=true;
+            }
+            else
+                {
+                    num=a[k[j,n]];
+                    //check_argument[j,n]=true;
+                }
+        }
+        else
+            {
+                num=int.Parse(val);
+                 //check_argument[j,n]=true;
+            }
+            
+       Console.WriteLine("C["+j+","+n+"]="+count[j,n]);  
+            
+        return num;
+    }
+    
+    static void Main(string[] args)
+    {
+        Solution s= new Solution();
+        //while(true);
+        int N = int.Parse(Console.ReadLine());
+        for (int i = 0; i < N; i++)
+        {
+            string[] inputs = Console.ReadLine().Split(' ');
+            s.op[i] = inputs[0];
+            s.arg1[i] = inputs[1];
+            s.arg2[i] = inputs[2];
+            //n1=int.Parse(arg1);
+           // n2=int.Parse(arg2);
+            
+            switch(s.op[i])
+            {
+                case "VALUE":
+                            s.a[i]=s.check(s.arg1[i],i,0);
+                            //s.cou[i,1]=true;
+                            break;
+                case "ADD":
+                            s.a[i]=s.check(s.arg1[i],i,0)+s.check(s.arg2[i],i,1);
+                            break;
+                 case "SUB":
+                            s.a[i]=s.check(s.arg1[i],i,0)-s.check(s.arg2[i],i,1);
+                            break;
+                 case "MULT":
+                            s.a[i]=s.check(s.arg1[i],i,0)*s.check(s.arg2[i],i,1);
+                            break;
+            }
+        }
+        
+        while(s.flag==false)
+        {
+            //s.flag=s.validate(N);
+           // s.loo(N);
+            s.check_backward(N);
+            s.loo(N);
+            Console.WriteLine("\nAfter SECOnd LOO\n");
+            s.flag=s.validate(N);
+            if(s.flag==true)
+                break;
+            s.check_forward(N);
+            s.flag=s.validate(N);
+        }
+        
+        for (int i = 0; i < N; i++)
+        {
+
+            // Write an action using Console.WriteLine()
+            // To debug: Console.Error.WriteLine("Debug messages...");
+
+            Console.WriteLine(s.a[i]);
+        }
+    }
+}

@@ -1,0 +1,552 @@
+st=51 ed=57
+------------
+------------
+st=566 ed=4234
+------------
+Sorted 1: Start=51 End=57
+------------
+S_TEMP_STart=51
+st=598149 ed=834729
+------------
+Sorted 1: Start=51 End=57
+Sorted 2: Start=566 End=4234
+------------
+S_TEMP_STart=566
+st=5122 ed=6160
+------------
+Sorted 1: Start=51 End=57
+Sorted 2: Start=566 End=4234
+Sorted 3: Start=598149 End=834729
+------------
+S_TEMP_STart=566
+st=17 ed=46
+------------
+Sorted 1: Start=51 End=57
+Sorted 2: Start=566 End=4234
+Sorted 3: Start=5122 End=6160
+Sorted 4: Start=598149 End=834729
+------------
+st=165271503 ed=259311575
+------------
+Sorted 1: Start=17 End=46
+Sorted 2: Start=51 End=57
+Sorted 3: Start=566 End=4234
+Sorted 4: Start=5122 End=6160
+Sorted 5: Start=598149 End=834729
+------------
+S_TEMP_STart=598149
+st=288436131 ed=1932691397
+------------
+Sorted 1: Start=17 End=46
+Sorted 2: Start=51 End=57
+Sorted 3: Start=566 End=4234
+Sorted 4: Start=5122 End=6160
+Sorted 5: Start=598149 End=834729
+Sorted 6: Start=165271503 End=259311575
+------------
+S_TEMP_STart=165271503
+st=75 ed=78
+------------
+Sorted 1: Start=17 End=46
+Sorted 2: Start=51 End=57
+Sorted 3: Start=566 End=4234
+Sorted 4: Start=5122 End=6160
+Sorted 5: Start=598149 End=834729
+Sorted 6: Start=165271503 End=259311575
+Sorted 7: Start=288436131 End=1932691397
+------------
+S_TEMP_STart=51
+st=343 ed=393
+------------
+Sorted 1: Start=17 End=46
+Sorted 2: Start=51 End=57
+Sorted 3: Start=75 End=78
+Sorted 4: Start=566 End=4234
+Sorted 5: Start=5122 End=6160
+Sorted 6: Start=598149 End=834729
+Sorted 7: Start=165271503 End=259311575
+Sorted 8: Start=288436131 End=1932691397
+------------
+S_TEMP_STart=75
+st=41 ed=45
+------------
+Sorted 1: Start=17 End=46
+Sorted 2: Start=51 End=57
+Sorted 3: Start=75 End=78
+Sorted 4: Start=343 End=393
+Sorted 5: Start=566 End=4234
+Sorted 6: Start=5122 End=6160
+Sorted 7: Start=598149 End=834729
+Sorted 8: Start=165271503 End=259311575
+Sorted 9: Start=288436131 End=1932691397
+------------
+S_TEMP_STart=17
+Exchane NOTHING
+st=204 ed=479
+------------
+Sorted 1: Start=17 End=46
+Sorted 2: Start=51 End=57
+Sorted 3: Start=75 End=78
+Sorted 4: Start=343 End=393
+Sorted 5: Start=566 End=4234
+Sorted 6: Start=5122 End=6160
+Sorted 7: Start=598149 End=834729
+Sorted 8: Start=165271503 End=259311575
+Sorted 9: Start=288436131 End=1932691397
+------------
+S_TEMP_STart=75
+Exchane END and UPDATE
+TEMP3=75
+TEMP5=343
+TEMP3=75
+TEMP5=343
+st=74 ed=92
+------------
+Sorted 1: Start=17 End=46
+Sorted 2: Start=51 End=57
+Sorted 3: Start=75 End=479
+Sorted 4: Start=566 End=4234
+Sorted 5: Start=5122 End=6160
+Sorted 6: Start=598149 End=834729
+Sorted 7: Start=165271503 End=259311575
+Sorted 8: Start=288436131 End=1932691397
+------------
+S_TEMP_STart=51
+Exchane END and UPDATE
+TEMP3=51
+TEMP5=75
+TEMP3=51
+TEMP5=75
+st=207 ed=490
+------------
+Sorted 1: Start=17 End=46
+Sorted 2: Start=51 End=479
+Sorted 3: Start=566 End=4234
+Sorted 4: Start=5122 End=6160
+Sorted 5: Start=598149 End=834729
+Sorted 6: Start=165271503 End=259311575
+Sorted 7: Start=288436131 End=1932691397
+------------
+S_TEMP_STart=51
+st=49 ed=56
+------------
+Sorted 1: Start=17 End=46
+Sorted 2: Start=51 End=479
+Sorted 3: Start=207 End=490
+Sorted 4: Start=566 End=4234
+Sorted 5: Start=5122 End=6160
+Sorted 6: Start=598149 End=834729
+Sorted 7: Start=165271503 End=259311575
+Sorted 8: Start=288436131 End=1932691397
+------------
+S_TEMP_STart=17
+Exchane END and UPDATE
+TEMP3=17
+TEMP5=51
+TEMP3=17
+TEMP5=51
+st=964644464 ed=1887812645
+------------
+Sorted 1: Start=17 End=479
+Sorted 2: Start=207 End=490
+Sorted 3: Start=566 End=4234
+Sorted 4: Start=5122 End=6160
+Sorted 5: Start=598149 End=834729
+Sorted 6: Start=165271503 End=259311575
+Sorted 7: Start=288436131 End=1932691397
+------------
+S_TEMP_STart=165271503
+Exchane END and UPDATE
+TEMP3=165271503
+TEMP5=288436131
+TEMP3=165271503
+TEMP5=288436131
+st=136 ed=420
+------------
+Sorted 1: Start=17 End=479
+Sorted 2: Start=207 End=490
+Sorted 3: Start=566 End=4234
+Sorted 4: Start=5122 End=6160
+Sorted 5: Start=598149 End=834729
+Sorted 6: Start=165271503 End=1932691397
+------------
+S_TEMP_STart=17
+Exchane NOTHING
+st=429742458 ed=1053501121
+------------
+Sorted 1: Start=17 End=479
+Sorted 2: Start=207 End=490
+Sorted 3: Start=566 End=4234
+Sorted 4: Start=5122 End=6160
+Sorted 5: Start=598149 End=834729
+Sorted 6: Start=165271503 End=1932691397
+------------
+S_TEMP_STart=598149
+Exchane END and UPDATE
+TEMP3=598149
+TEMP5=165271503
+TEMP3=598149
+TEMP5=165271503
+st=195 ed=393
+------------
+Sorted 1: Start=17 End=479
+Sorted 2: Start=207 End=490
+Sorted 3: Start=566 End=4234
+Sorted 4: Start=5122 End=6160
+Sorted 5: Start=598149 End=1932691397
+------------
+S_TEMP_STart=17
+Exchane NOTHING
+st=232 ed=1608
+------------
+Sorted 1: Start=17 End=479
+Sorted 2: Start=207 End=490
+Sorted 3: Start=566 End=4234
+Sorted 4: Start=5122 End=6160
+Sorted 5: Start=598149 End=1932691397
+------------
+S_TEMP_STart=207
+Exchane END and UPDATE
+TEMP3=207
+TEMP5=566
+TEMP3=207
+TEMP5=566
+st=184 ed=6763
+------------
+Sorted 1: Start=17 End=479
+Sorted 2: Start=207 End=4234
+Sorted 3: Start=5122 End=6160
+Sorted 4: Start=598149 End=1932691397
+------------
+S_TEMP_STart=17
+Exchane END and UPDATE
+TEMP3=17
+TEMP5=207
+TEMP3=17
+TEMP5=207
+st=13 ed=33
+------------
+Sorted 1: Start=17 End=6763
+Sorted 2: Start=5122 End=6160
+Sorted 3: Start=598149 End=1932691397
+------------
+Exchane START
+st=60169371 ed=1162580884
+------------
+Sorted 1: Start=13 End=6763
+Sorted 2: Start=5122 End=6160
+Sorted 3: Start=598149 End=1932691397
+------------
+S_TEMP_STart=5122
+Exchane END and UPDATE
+TEMP3=5122
+TEMP5=598149
+TEMP3=5122
+TEMP5=598149
+st=774423404 ed=797664100
+------------
+Sorted 1: Start=13 End=6763
+Sorted 2: Start=5122 End=1932691397
+------------
+S_TEMP_STart=13
+Exchane END and UPDATE
+TEMP3=13
+TEMP5=5122
+TEMP3=13
+TEMP5=5122
+st=1381580035 ed=1668522412
+------------
+Sorted 1: Start=13 End=1932691397
+------------
+S_TEMP_STart=13
+Exchane NOTHING
+st=190444 ed=284746
+------------
+Sorted 1: Start=13 End=1932691397
+------------
+S_TEMP_STart=13
+Exchane NOTHING
+st=112880052 ed=1389027745
+------------
+Sorted 1: Start=13 End=1932691397
+------------
+S_TEMP_STart=13
+Exchane NOTHING
+st=196 ed=279
+------------
+Sorted 1: Start=13 End=1932691397
+------------
+S_TEMP_STart=13
+Exchane NOTHING
+st=117760 ed=859558
+------------
+Sorted 1: Start=13 End=1932691397
+------------
+S_TEMP_STart=13
+Exchane NOTHING
+st=121381 ed=236758
+------------
+Sorted 1: Start=13 End=1932691397
+------------
+S_TEMP_STart=13
+Exchane NOTHING
+st=40 ed=83
+------------
+Sorted 1: Start=13 End=1932691397
+------------
+S_TEMP_STart=13
+Exchane NOTHING
+st=51 ed=74
+------------
+Sorted 1: Start=13 End=1932691397
+------------
+S_TEMP_STart=13
+Exchane NOTHING
+st=4048 ed=6191
+------------
+Sorted 1: Start=13 End=1932691397
+------------
+S_TEMP_STart=13
+Exchane NOTHING
+st=32 ed=82
+------------
+Sorted 1: Start=13 End=1932691397
+------------
+S_TEMP_STart=13
+Exchane NOTHING
+st=1 ed=65
+------------
+Sorted 1: Start=13 End=1932691397
+------------
+Exchane START
+st=37 ed=148
+------------
+Sorted 1: Start=1 End=1932691397
+------------
+S_TEMP_STart=1
+Exchane NOTHING
+st=0 ed=73
+------------
+Sorted 1: Start=1 End=1932691397
+------------
+Exchane START
+st=591646 ed=893422
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=224008 ed=649271
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=3150 ed=8259
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=951966787 ed=1627123054
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=318604 ed=604539
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=81 ed=97
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=781864601 ed=1390933683
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=17 ed=124
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=1030908877 ed=1796833002
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=39 ed=45
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=82739 ed=363091
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=2571 ed=3239
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=156 ed=333
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=4930 ed=7479
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=996706325 ed=1268325988
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=19 ed=90
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=26667 ed=108371
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=52581129 ed=803126065
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=1833231690 ed=1908070559
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=783093028 ed=807124796
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=154115 ed=347846
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=1731 ed=6452
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=12 ed=78
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=3 ed=33
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=462351 ed=1805485861
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=271 ed=460
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=1282262829 ed=1424278575
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=5787 ed=8055
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=3759 ed=4011
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=87992 ed=288855
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=245938 ed=797316
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=3128 ed=7514
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=42 ed=80
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=398695717 ed=864069801
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=43 ed=44
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+st=1223 ed=3675
+------------
+Sorted 1: Start=0 End=1932691397
+------------
+S_TEMP_STart=0
+Exchane NOTHING
+Sorted 1: Start=0 End=1932691397
+
+Outputting answer
+1932691397 2000000000
