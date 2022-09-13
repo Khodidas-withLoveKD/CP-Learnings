@@ -86,3 +86,16 @@ for elem in dup_list_2:
         uniques.append(elem)
 print(f'After removing dups by method 2 {uniques}')
 
+print('\n=== del Vs pop vs remove ====')
+new_list = [1, 2, 3, 4, 5, 6, 7, 8]
+new_list.remove(4)
+print(f'Remove a particular elem by value: remove(4) \n List = {new_list}')
+new_list.pop(1)
+print(f'Remove a particular elem by index: pop(1) \n List = {new_list}')
+del new_list[2]
+print(f'Remove a particular elem by index using del: del new_list[2] \n List = {new_list}')
+del new_list
+print(f'Delete the entire list: del new_list \n List = {new_list}')
+
+
+
