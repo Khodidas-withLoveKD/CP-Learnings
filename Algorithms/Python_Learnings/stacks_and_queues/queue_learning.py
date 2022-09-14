@@ -53,9 +53,9 @@ print(f'Adding queue.put(3) | queue = {qq}')
 print('--- Removing Items ---')
 print(f'is Queue Full = {qq.full()}')
 print(f'is Queue Empty = {qq.empty()}')
-print(f'queue.pop(0) = {qq.get()} | queue = {qq}')
-print(f'queue.pop(0) = {qq.get()} | queue = {qq}')
-print(f'queue.pop(0) = {qq.get()} | queue = {qq}')
+print(f'queue.get(0) = {qq.get()} | queue = {qq}')
+print(f'queue.get(0) = {qq.get()} | queue = {qq}')
+print(f'queue.get(0) = {qq.get()} | queue = {qq}')
 # Adding the below line will make the program wait
 # print(f'queue.pop(0) = {qq.get()} | queue = {qq}')
 # The below line will raise Queue Empty error
