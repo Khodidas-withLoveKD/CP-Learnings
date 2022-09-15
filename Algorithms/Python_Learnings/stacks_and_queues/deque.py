@@ -23,4 +23,14 @@ dq.rotate(3)
 print(f'dq.rotate(3) | dq = {dq}')
 dq.rotate(-3)
 print(f'dq.rotate(-3) | dq = {dq}')
+del dq[1]
+print(f'del dq[1] | dq = {dq}')
+
+print('\n=== Different ways to init deque====')
+dq_letter = deque(['a', 'b', 'c'])
+print(f"deque(['a', 'b', 'c'] = {dq_letter}")
+dq_together = deque('abc')
+print(f"deque(['abc'] = {dq_together}")
+print("deque([{data:'abc'}, {data: 'KD']")
+print(deque([{'data':'abc'}, {'data': 'KD'}]))
 
