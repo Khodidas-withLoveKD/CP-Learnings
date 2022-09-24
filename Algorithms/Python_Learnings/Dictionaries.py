@@ -54,3 +54,20 @@ print(nums)
 nums[1] = nums.get(1, 0) + 1
 nums[0] = nums.get(0, 0) + 1
 print(nums)
+
+print('===== ITERATING THROUGH DICT =====')
+print('---- via normal "in" operator')
+for key in numbers_map:
+    print(key + ' -> ' + numbers_map[key])
+
+print('---- via keys ------')
+for key in numbers_map.keys():
+    print('key = ' + key)
+
+print('---- via values -----')
+for value in numbers_map.values():
+    print('value = ' + value)
+
+print('---- via items ----')
+for key, value in numbers_map.items():  # unpacking items
+    print(key + ' -> ' + value)
