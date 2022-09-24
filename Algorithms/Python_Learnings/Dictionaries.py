@@ -44,3 +44,13 @@ for num in lucky_number:
     ans += numbers_map[num] + ' '
 # map each digit to it's spelling and store it in a variable
 print(f'Your lucky number is: {ans}')
+
+
+nums = {
+    1: 1,
+    2: 1
+}
+print(nums)
+nums[1] = nums.get(1, 0) + 1
+nums[0] = nums.get(0, 0) + 1
+print(nums)
