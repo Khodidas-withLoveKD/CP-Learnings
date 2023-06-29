@@ -52,9 +52,32 @@ def count_steps_using_dynamic_programming(n):
     print(f'DP ans = {ans}')
 
 
+def counting_steps_using_four_variables(n):
+    # defining first three steps
+    a = 1
+    b = 2
+    c = 4
+    d = 0
+
+    if n == 0 or n == 1 or n == 2:
+        print(n)
+        return
+    if n == 3:
+        print(c)
+        return
+
+    for _ in range(4, n + 1):
+        d = a + b + c
+        a = b
+        b = c
+        c = d
+    print(d)
+
+
 testcases = [3, 4, 5, 6, 7, 8, 9, 10]
 answers = [4, 7, 13, 24, 44, 81, 149, 274]
 
 for testcase in testcases:
-    count_steps_using_recursion(testcase)
-    count_steps_using_dynamic_programming(testcase)
+    # count_steps_using_recursion(testcase)
+    # count_steps_using_dynamic_programming(testcase)
+    counting_steps_using_four_variables(testcase)
