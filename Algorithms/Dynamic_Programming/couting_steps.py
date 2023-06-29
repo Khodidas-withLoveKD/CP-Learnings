@@ -37,10 +37,24 @@ def count_steps_using_recursion(n):
         return climb(i+1, n) + climb(i+2, n) + climb(i+3, n)
 
     ans = climb(1, n) + climb(2, n) + climb(3, n)
-    print(ans)
+    print(f'recursion ans = {ans}')
+
+
+def count_steps_using_dynamic_programming(n):
+    cache = [0] * (n+1)
+    cache[n] = 1
+    for i in range(n-1, 0, -1):
+        for j in range(1, 4):
+            if i + j <= n:
+                cache[i] += cache[i+j]
+
+    ans = cache[1] + cache[2] + cache[3]
+    print(f'DP ans = {ans}')
 
 
 testcases = [3, 4, 5, 6, 7, 8, 9, 10]
-ans = [4, 7, 13, 24, 44, 81, 149, 274]
+answers = [4, 7, 13, 24, 44, 81, 149, 274]
+
 for testcase in testcases:
     count_steps_using_recursion(testcase)
+    count_steps_using_dynamic_programming(testcase)
