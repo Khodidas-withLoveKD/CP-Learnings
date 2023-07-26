@@ -16,3 +16,7 @@ counter.subtract(li_to_be_subtracted)
 print(f'After subtraction - updated counter = {counter}')
 print(f'counter[100] = {counter[100]}')  # acts as a defaultdict
 
+print(f'counter.elements = {counter.elements()}')
+print(f'counter.items = {counter.items()}')
+print(f'counter.keys = {counter.keys()}')
+print(f'counter.values = {counter.values()}')
