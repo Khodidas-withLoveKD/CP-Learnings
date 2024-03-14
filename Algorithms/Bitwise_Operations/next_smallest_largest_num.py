@@ -242,7 +242,6 @@ testcases = [73, 5, 11, 2, 3, 15, 0, 1]
 greater = [74, 6, 13, 4, 5, 23, -1, 2]
 smaller = [70, 3, 7, 1, -1, -1, -1, -1]
 
-# get_next_nums_book_soln_bit_manipulation(72)
 for num in testcases:
     get_next_nums_book_soln_bit_manipulation(num)
 
