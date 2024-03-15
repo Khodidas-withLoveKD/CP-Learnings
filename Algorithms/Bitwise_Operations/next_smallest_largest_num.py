@@ -35,6 +35,7 @@ def get_ls_zero_index(num):
 def print_bin_and_num(num, name):
     print(f'{name} = {num} | {name}_bin = {bin(num)}')
 
+
 def get_next_smallest_and_largest_num_using_binary_str_manipulation(num):
     # this method gives incorrect answers
     bin_num = bin(num)[2:]
@@ -238,12 +239,69 @@ def get_next_nums_book_soln_bit_manipulation(num):
     print(f'--\nnum = {num} | bigger = {next_bigger} | smaller = {next_smaller} \n--')
 
 
+def get_next_nums_by_arithmetic(num):
+    def get_zero_first_and_ones_count(num):
+        zeros_count, ones_count = 0, 0
+        while num & 1 == 0 and num != 0:
+            zeros_count += 1
+            num >>= 1
+
+        while num & 1 == 1:
+            ones_count += 1
+            num >>= 1
+
+        return zeros_count, ones_count
+
+    def get_next_bigger_by_arithmetic(num):
+        zeros_count, ones_count = get_zero_first_and_ones_count(num)
+
+        if zeros_count + ones_count == 0:
+            return -1
+
+        # if n = 1001100 (76)
+        # make it 1010000
+        # add 11 to it -> 2 ** (zeros_count) - 1 => n = 1001111
+        # add 1 to it => n = 101_000_00
+        # add ones_count-1 ones to it -> 2 ** (ones_count - 1) - 1 => n = 101_000_01
+        # final = 2 ** (zeros_count) - 1 + 1 + 2**(ones_count-1) - 1
+        return num + (1 << zeros_count) + (1 << (ones_count-1)) - 1
+
+    def get_ones_first_and_zeros_count(num):
+        zeros_count, ones_count = 0, 0
+        while num & 1 == 1:
+            ones_count += 1
+            num >>= 1
+
+        while num & 1 == 0 and num != 0:
+            zeros_count += 1
+            num >>= 1
+
+        return ones_count, zeros_count
+
+    def get_next_smaller_by_arithmetic(num):
+        ones_count, zeros_count = get_ones_first_and_zeros_count(num)
+        if zeros_count == 0:
+            return -1
+
+        # if n = 100_100_011 -> convert n = 100_011_000
+        # start from right to make it work
+        # reset the right trailing zeros -> n -= 2 ** (ones_count) - 1 => n = 100_100_000
+        # make the 1 bit to zero and also do something to bring the ones to the left -> n -= 1 => n = 100_011_111
+        # make the trailing zeros_count 1s to 0 -> n -= 2**(zeros_count-1) - 1 => n = 100_011_000
+        # final n - 2**(ones_count) + 1 - 1 - 2**(zeros_count-1) + 1
+        return num - (1 << ones_count) + 1 - (1 << (zeros_count-1))
+
+    next_bigger = get_next_bigger_by_arithmetic(num)
+    next_smaller = get_next_smaller_by_arithmetic(num)
+    print(f'--\nnum = {num} | bigger = {next_bigger} | smaller = {next_smaller}\n--')
+
+
 testcases = [73, 5, 11, 2, 3, 15, 0, 1]
 greater = [74, 6, 13, 4, 5, 23, -1, 2]
 smaller = [70, 3, 7, 1, -1, -1, -1, -1]
 
 for num in testcases:
-    get_next_nums_book_soln_bit_manipulation(num)
+    get_next_nums_by_arithmetic(num)
 
 
 
