@@ -35,7 +35,7 @@ print(f'queue.pop(0) = {dq_queue.popleft()} | queue = {dq_queue}')
 # print(f'queue.pop(0) = {dq_queue.popleft()} | queue = {dq_queue}')
 print(f'size = {len(dq_queue)}')
 
-print('\n==== USING Queue from queue ====')
+print('\n==== USING stacks_and_queues from queue ====')
 qq = Queue(maxsize=3)
 print(f'initial queue = {qq}')
 print(f'initial size = {qq.qsize()}')
@@ -48,23 +48,23 @@ print(f'Adding queue.put(3) | queue = {qq}')
 # Adding the below line will make the program wait
 # qq.put(4)
 # print(f'Adding queue.put(4) | queue = {qq}')
-# Adding below line will raise Queue Full error
+# Adding below line will raise stacks_and_queues Full error
 # qq.put_nowait(4)
 print('--- Removing Items ---')
-print(f'is Queue Full = {qq.full()}')
-print(f'is Queue Empty = {qq.empty()}')
+print(f'is stacks_and_queues Full = {qq.full()}')
+print(f'is stacks_and_queues Empty = {qq.empty()}')
 print(f'queue.get(0) = {qq.get()} | queue = {qq}')
 print(f'queue.get(0) = {qq.get()} | queue = {qq}')
 print(f'queue.get(0) = {qq.get()} | queue = {qq}')
 # Adding the below line will make the program wait
 # print(f'queue.pop(0) = {qq.get()} | queue = {qq}')
-# The below line will raise Queue Empty error
+# The below line will raise stacks_and_queues Empty error
 # print(f'queue.pop(0) = {qq.get_nowait()} | queue = {qq}')
-print(f'is Queue Full = {qq.full()}')
-print(f'is Queue Empty = {qq.empty()}')
+print(f'is stacks_and_queues Full = {qq.full()}')
+print(f'is stacks_and_queues Empty = {qq.empty()}')
 qq.put(2)
 print(f'Adding queue.put(2) | queue = {qq}')
-print(f'is Queue Full = {qq.full()}')
-print(f'is Queue Empty = {qq.empty()}')
+print(f'is stacks_and_queues Full = {qq.full()}')
+print(f'is stacks_and_queues Empty = {qq.empty()}')
 
 

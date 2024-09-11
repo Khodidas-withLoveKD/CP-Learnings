@@ -36,7 +36,7 @@ print(f'Adding stack.put(3) | queue = {lifo_queue_stack}')
 # Adding the below line will make the program wait
 # qq.put(4)
 # print(f'Adding queue.put(4) | queue = {qq}')
-# Adding below line will raise Queue Full error
+# Adding below line will raise stacks_and_queues Full error
 # qq.put_nowait(4)
 print('--- Removing Items ---')
 print(f'is stack Full = {lifo_queue_stack.full()}')
@@ -46,7 +46,7 @@ print(f'stack.pop(0) = {lifo_queue_stack.get()} | stack = {lifo_queue_stack}')
 print(f'stack.pop(0) = {lifo_queue_stack.get()} | stack = {lifo_queue_stack}')
 # Adding the below line will make the program wait
 # print(f'queue.pop(0) = {lifo_queue_stack.get()} | queue = {qq}')
-# The below line will raise Queue Empty error
+# The below line will raise stacks_and_queues Empty error
 # print(f'queue.pop(0) = {lifo_queue_stack.get_nowait()} | queue = {qq}')
 print(f'is stack Full = {lifo_queue_stack.full()}')
 print(f'is stack Empty = {lifo_queue_stack.empty()}')

@@ -104,7 +104,7 @@ class AnimalShelter:
     def current_queue(self):
         temp = self.sentinel_node.next
         # temp = self.sentinel_node
-        print('Current Shelter Queue: ', end="")
+        print('Current Shelter stacks_and_queues: ', end="")
         while temp:
             print(temp.animal_type.value, end="->")
             temp = temp.next
