@@ -1,6 +1,6 @@
 package Algorithms.Linked_List;
 
-public Class Main {
+class CircularLinkedList {
 
 public static void main(String[] args){
     Node one = new Node(1);
