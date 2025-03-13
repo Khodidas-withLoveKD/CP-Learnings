@@ -40,6 +40,7 @@ def flatten_tree(root):
     traverse(traversal, root)
 
     # server commit 1
+    # server commit 2
     # you have the sorted order. Create a linked list out of it
     create_linked_list(traversal)
     # Rebase commit 1
