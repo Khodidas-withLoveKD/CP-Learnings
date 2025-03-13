@@ -43,3 +43,4 @@ def flatten_tree(root):
     # Rebase commit 1
     # Rebase commit 2
     # master commit 1
+    # master commit 2
