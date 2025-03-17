@@ -20,63 +20,11 @@ class BSTNode:
         self.right = None
 
 
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-
-def traverse(traversal, node):
-    if node is None:
-        return
-
-    # traverse in-order
-    traverse(traversal, node.left)
-    traversal.append(node.data)
-    traverse(traversal, node.right)
-
-
-def create_linked_list(traversal):
-    # you need to pont the markers properly
-    # create linked list based on the nodes present in list
-    head = Node(traversal[0])
-    node = head
-    for i in range(1, len(traversal)):
-        new_node = Node(traversal[i])
-        node.next = new_node
-        print(f'node = {node.data} | new_node = {new_node.data}')
-        node = new_node
-
-    return head
-
-
 def print_linked_list(head):
     print('The Linked list:')
     while head:
         print(head.data)
-        head = head.next
-
-
-def flatten_tree_to_linked_list_method_1(root):
-    # Method 1: Create array and traverse
-    # the list which keeps track of order of traversal
-    traversal = []
-    traverse(traversal, root)
-
-    head = create_linked_list(traversal)
-
-    print_linked_list(head)
-
-
-def flatten_tree_to_linked_list_method_2(root):
-    # Method 2: Need to keep track of what was the previous element visited
-    # to attach it to next
-    traversal = []
-    traverse(traversal, root)
-
-    head = create_linked_list(traversal)
-
-    print_linked_list(head)
+        head = head.right
 
 
 def generate_bst():
@@ -93,6 +41,75 @@ def generate_bst():
     return root
 
 
+def method_1(root):
+    def traverse(traversal, node):
+        if node is None:
+            return
+
+        # traverse in-order
+        traverse(traversal, node.left)
+        traversal.append(node.data)
+        traverse(traversal, node.right)
+
+    def create_linked_list(traversal):
+        # you need to pont the markers properly
+        # create linked list based on the nodes present in list
+        head = BSTNode(traversal[0])
+        node = head
+        for i in range(1, len(traversal)):
+            new_node = BSTNode(traversal[i])
+            node.right = new_node
+            print(f'node = {node.data} | new_node = {new_node.data}')
+            node = new_node
+
+        return head
+
+    def flatten_tree_to_linked_list_method_1(root):
+        # Method 1: Create array and traverse
+        # the list which keeps track of order of traversal
+        traversal = []
+        traverse(traversal, root)
+
+        head = create_linked_list(traversal)
+
+        print_linked_list(head)
+
+    print('===== METHOD 1 =====')
+    flatten_tree_to_linked_list_method_1(root)
+
+
+def flatten_tree_to_linked_list_method_2(root):
+    # Method 2: Need to keep track of what was the previous element visited
+    # and attach it to next
+    print('====== MEHTOD 2 ======')
+    prev = None
+
+    def inorder(node):
+        if node is None:
+            return
+        nonlocal prev
+
+        inorder(node.left)
+        prev.left = None  # the left should be None for all
+        # the right child point next
+        # prev means whose right shall be current node
+        prev.right = node
+        prev = node
+        inorder(node.right)
+
+    def flatten(root):
+        nonlocal prev
+
+        dummy = BSTNode(-1)
+        prev = dummy
+        inorder(root)
+
+        # exits the recursion. Delete the dummy node
+        return dummy.right
+
+    print_linked_list(flatten(root))
+
+
 root = generate_bst()
-flatten_tree_to_linked_list_method_1(root)
+method_1(root)
 flatten_tree_to_linked_list_method_2(root)
