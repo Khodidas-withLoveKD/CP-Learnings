@@ -32,8 +32,9 @@ def create_population():
 
 
 def fitness(val):
-    # return val**2 - 25
-    return val ** 2
+    # return val ** 2  # to maximize x^2
+    # to find closest num to x
+    return - abs(val**2 - 25)  # making it negative to understand better i.e., -0.1 is better than -0.2
 
 
 def select_parent(population):  # we have used tournament selection here
