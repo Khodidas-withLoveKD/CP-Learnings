@@ -21,3 +21,23 @@ num = 1
 print(f'OUTSIDE ALL FUNCTIONS = {num}')
 
 outer_function()
+
+
+"""
+SOMETIME LATER in 2025
+"""
+
+val = 10
+
+
+def outer():
+    val = 20
+
+    def inner():
+        print(f'Inside Inner | After {val = }')
+
+    print(f' Inside Outer | Before {val = }')
+    val = 5
+    print(f'Inside Outer | After {val = }')
+
+outer()
