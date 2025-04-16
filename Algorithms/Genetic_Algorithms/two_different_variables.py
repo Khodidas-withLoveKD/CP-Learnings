@@ -6,12 +6,17 @@ Eqn: x + y = 0
 There can be lots of pairs of ans viz. (-1, 1), (-2, 2), etc.
 
 Little difficult but will see
+--––––––––––––––––––
+Now, we will try with two linear equations
+2x + y = 11
+x - y = 1
+Ans: x = 4, y = 3
 """
 import random
 
 
 # PARAMS
-POPU_SIZE = 10
+POPU_SIZE = 50
 NO_OF_GENS = 50
 GENERATION_RANGE = (-10, 10)
 MUTATION_RATE = 0.1
@@ -28,8 +33,22 @@ def generate_population():
 
 
 def fitness(individual):  # the most crucial part
+    # the main concern lie with two linear equations is the fitness part
+    # that how do we decide the fitness
+    # ------
+    # there are two equations
+    # we understand that 2x + y should be near to 11 and x - y should be 1
+    # so fitnesss_1 => - abs(2x + y - 11)
+    # and fitness_2 => - abs(x - y)
+    # how do we club this together?
+    # Do the average?
+    # No, doing total error helps more => less error = fitter individual
     x, y = individual
-    return - abs(x + y)
+    error_1 = abs(2*x + y - 11)
+    error_2 = abs(x - y - 1)
+    total_error = error_1 + error_2
+
+    return - total_error
 
 
 def select_parent(population):
