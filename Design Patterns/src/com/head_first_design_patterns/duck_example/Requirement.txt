@@ -1,0 +1,7 @@
+Create a duck Class than can fly and make sound.
+Make sure to think of all the examples of ducks
+Ex.,
+Type of Duck      Can fly       Make sound
+Normal              yes          quack
+Rubber duck         No           squeak
+Wood Duck           No           No
