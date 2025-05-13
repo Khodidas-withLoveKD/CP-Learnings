@@ -7,5 +7,10 @@ public class MallardDuck extends Duck {
     public MallardDuck() {
         flyBehaviour = new FlyWithWings();
         quackBehaviour = new Quack();
+        this.displayType();
+    }
+
+    public void displayType() {
+        System.out.println("-----------\nI'm Mallard Duck");
     }
 }

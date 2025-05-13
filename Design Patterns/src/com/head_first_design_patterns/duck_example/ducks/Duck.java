@@ -17,12 +17,20 @@ public abstract class Duck {
     // constructor
     public Duck() {}
 
-    public void display() {
-        System.out.println("DISPLAYING");
+    public abstract void displayType();
+
+    public void setFlyBehaviour(FlyBehaviour fb) {
+        flyBehaviour = fb;
+        // `this` was not required here
+        // But it is perfectly fine if you do it
     }
 
     public void performFly() {
         flyBehaviour.fly();
+    }
+
+    public void setQuackBehaviour(QuackBehaviour qb) {
+        quackBehaviour = qb;
     }
 
     public void performQuack() {
